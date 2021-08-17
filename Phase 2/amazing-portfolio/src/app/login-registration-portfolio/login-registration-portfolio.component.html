@@ -26,6 +26,7 @@
 </div>
 
 <div *ngIf="showPortfolio">
+    <h2>My Portfolio</h2>
     <p>Welcome {{welcome}}</p>
     <form [formGroup]="conRef" (ngSubmit)="saveContactDetails(this.conRef.value.name,this.conRef.value.phone)">
         <label>Contact Name</label>
