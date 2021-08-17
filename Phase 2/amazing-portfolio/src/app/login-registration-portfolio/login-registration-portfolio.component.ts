@@ -29,6 +29,7 @@ export class LoginRegistrationPortfolioComponent implements OnInit {
   regPass:string="";
   welcome:string="";
   msg:string="";
+  regMsg:string="";
   showReg:boolean=false;
   showSignin:boolean=true;
   showPortfolio:boolean=false;
@@ -69,6 +70,10 @@ export class LoginRegistrationPortfolioComponent implements OnInit {
   saveContactDetails(name:any,phone:any){
     let conDet=new Contact(name,phone);
     this.contacts.push(conDet);
+  }
+
+  registerMsg(){
+    this.regMsg="Registered!";
   }
 
 }

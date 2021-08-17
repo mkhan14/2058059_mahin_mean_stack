@@ -8,11 +8,12 @@
         <input type="submit" value="Login" [disabled]=!loginRef.valid/>
     </form>
     <input type="button" value="Sign up" (click)="toggle('reg')"/>
+    {{msg}}
 </div>
 
 <div *ngIf="showReg">
     <h2>Registration Form</h2>
-    <form [formGroup]="regRef" (ngSubmit)="toggle('signin')">
+    <form [formGroup]="regRef" (ngSubmit)="registerMsg()">
         <label>First name</label>
         <input type="text" formControlName="first"/><br/>
         <label>Last name</label>
@@ -21,8 +22,11 @@
         <input type="text" formControlName="user"/><br/>
         <label>Password</label>
         <input type="password" formControlName="pass"/><br/>
-        <input type="submit" value="Login" [disabled]=!regRef.valid/>
+        <input type="submit" value="Register" [disabled]=!regRef.valid/>
+        <input type="reset" value="reset"/>
+        <input type="button" value="Login" (click)="toggle('signin')"/>
     </form>
+    {{regMsg}}
 </div>
 
 <div *ngIf="showPortfolio">
