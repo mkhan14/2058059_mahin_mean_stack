@@ -1,0 +1,48 @@
+<div *ngIf="showSignin">
+    <h2>Login Form</h2>
+    <form [formGroup]="loginRef" (ngSubmit)="checkUser()">
+        <label>Username</label>
+        <input type="text" formControlName="user"/><br/>
+        <label>Password</label>
+        <input type="password" formControlName="pass"/><br/>
+        <input type="submit" value="Login" [disabled]=!loginRef.valid/>
+    </form>
+    <input type="button" value="Sign up" (click)="toggle('reg')"/>
+</div>
+
+<div *ngIf="showReg">
+    <h2>Registration Form</h2>
+    <form [formGroup]="regRef" (ngSubmit)="toggle('signin')">
+        <label>First name</label>
+        <input type="text" formControlName="first"/><br/>
+        <label>Last name</label>
+        <input type="text" formControlName="last"/><br/>
+        <label>Username</label>
+        <input type="text" formControlName="user"/><br/>
+        <label>Password</label>
+        <input type="password" formControlName="pass"/><br/>
+        <input type="submit" value="Login" [disabled]=!regRef.valid/>
+    </form>
+</div>
+
+<div *ngIf="showPortfolio">
+    <p>Welcome {{welcome}}</p>
+    <form [formGroup]="conRef" (ngSubmit)="saveContactDetails(this.conRef.value.name,this.conRef.value.phone)">
+        <label>Contact Name</label>
+        <input type="text" formControlName="name"/><br/>
+        <label>Phone No.</label>
+        <input type="text" formControlName="phone"/><br/>
+        <input type="submit" value="Save" [disabled]=!conRef.valid/>
+    </form>
+    
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Phone No.</th>
+        </tr>
+        <tr *ngFor="let con of contacts">
+            <td>{{con.name}}</td>
+            <td>{{con.phone}}</td>
+        </tr>
+    </table>
+</div>
