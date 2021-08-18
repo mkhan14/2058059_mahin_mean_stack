@@ -1,0 +1,62 @@
+<div style="text-align:center;">
+    <h2>To-do tasks</h2>
+    <!-- <form [formGroup]="todoRef" (ngSubmit)="registerMsg()">
+        <label>ID: </label>
+        <input type="text" formControlName="first"/><br/>
+        <label>Name</label>
+        <input type="text" formControlName="last"/><br/>
+        <label>Task</label>
+        <input type="text" formControlName="user"/><br/>
+        <label>Deadline</label>
+        <input type="password" formControlName="pass"/><br/>
+        <input type="submit" value="Register" [disabled]=!regRef.valid/>
+        <input type="reset" value="reset"/>
+        <input type="button" value="Login" (click)="toggle('signin')"/>
+
+        
+    </form> -->
+
+    <form [formGroup]="todoRef" (ngSubmit)="saveTaskDetails(this.todoRef.value.id,this.todoRef.value.name,this.todoRef.value.task,this.todoRef.value.deadline)">
+        <mat-form-field>
+            <mat-label>ID: </mat-label>
+            <input matInput formControlName="id"/>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <mat-label>Name: </mat-label>
+            <input matInput formControlName="name"/>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <mat-label>Task: </mat-label>
+            <textarea matInput formControlName="task"></textarea>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <mat-label>Deadline: </mat-label>
+            <input type="date" matInput formControlName="deadline"/>
+        </mat-form-field>
+        <br/>
+        <button type="submit" mat-raised-button color="primary" [disabled]=!todoRef.valid>Submit</button>
+        <button type="reset" mat-raised-button style="background-color:bisque;">Reset</button>
+    </form>
+</div>
+
+<hr/>
+<div style="text-align:center;">
+<h2>To-do-List</h2>
+<table border="1" style="margin:auto;">
+    <tr>
+        <th>Emp Id</th>
+        <th>Name</th>
+        <th>Task</th>
+        <th>Deadline</th>
+    </tr>
+    <tr *ngFor="let t of tasks">
+        <td>{{t.id}}</td>
+        <td>{{t.name}}</td>
+        <td>{{t.task}}</td>
+        <td>{{t.deadline}}</td>
+    </tr>
+</table>
+</div>
