@@ -1,0 +1,12 @@
+[
+    {"question":"What is 5 + 5?","ans1":"10","ans2":"11","ans3":"12","ans4":"13","correctAns":"10"},
+    {"question":"What is 5 - 5?","ans1":"0","ans2":"18","ans3":"2","ans4":"3","correctAns":"0"},
+    {"question":"What is 5 + 4?","ans1":"100","ans2":"9","ans3":"102","ans4":"103","correctAns":"9"},
+    {"question":"What is 5 - 4?","ans1":"557","ans2":"11","ans3":"129","ans4":"1","correctAns":"1"},
+    {"question":"What is 5 + 50?","ans1":"190","ans2":"55","ans3":"120","ans4":"130","correctAns":"55"},
+    {"question":"What is 50 - 5?","ans1":"45","ans2":"101","ans3":"127","ans4":"173","correctAns":"45"},
+    {"question":"What is 1 + 5?","ans1":"160","ans2":"6","ans3":"122","ans4":"153","correctAns":"6"},
+    {"question":"What is the color of grass?","ans1":"Green","ans2":"Red","ans3":"Blue","ans4":"Purple","correctAns":"Green"},
+    {"question":"Which continent is USA in?","ans1":"Antarctica","ans2":"North America","ans3":"South America","ans4":"Moon","correctAns":"North America"},
+    {"question":"What is the capital of USA?","ans1":"Chicago","ans2":"Texas","ans3":"Chile","ans4":"Washington, DC","correctAns":"Washington, DC"}
+  ]

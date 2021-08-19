@@ -1,0 +1,27 @@
+<div>
+    <h3 style="text-align:center;">Get at least 7 out of 10 correct to pass</h3>
+    <form [formGroup]="myForm" (ngSubmit)="checkExam()">
+        <div *ngFor="let q of ques; let i = index">
+            <p>{{ i + 1 }}. {{q.question}}</p>
+            A: <input type="radio" formControlName={{q.question}} value={{q.ans1}} ngForm required/>
+            <span id="{{q.ans1}}">{{q.ans1}}</span>
+            <br/>
+            B: <input type="radio" formControlName={{q.question}} value={{q.ans2}} ngForm required/>
+            <span id="{{q.ans2}}">{{q.ans2}}</span>
+            <br/>
+            C: <input type="radio" formControlName={{q.question}} value={{q.ans3}} ngForm required/>
+            <span id="{{q.ans3}}">{{q.ans3}}</span>
+            <br/>
+            D: <input type="radio" formControlName={{q.question}} value={{q.ans4}} ngForm required/>
+            <span id="{{q.ans4}}">{{q.ans4}}</span>
+            <hr/>
+        </div>
+        <input *ngIf="showSubmit" type="submit" value="Submit" [disabled]="myForm.invalid"/>
+    </form>
+
+    <div *ngIf="showScore" style="text-align: center;">
+        <h1 *ngIf="pass" style="color:green;">{{score}}/10: Pass</h1>
+        <h1 *ngIf="fail" style="color:red;">{{score}}/10: Fail!</h1>
+    </div>
+    
+</div>
