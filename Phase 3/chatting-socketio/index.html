@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/JavaScript">
+      var socket=io();
+      socket.emit("clientMessage","");
+      curTime = ()=> {
+          return new Date();
+      }
+    
+    socket.on("serverMessage",(msg)=>{
+        info = ()=> {
+            let cliMsg = document.getElementById("clientMsg").value;
+            let cliName = document.getElementById("clientName").value;
+            let cliResponse = "(" + curTime().toLocaleTimeString() + ") " + cliName + ": " + cliMsg;
+    
+            document.getElementById("chatbox").innerHTML += "<h4>" + cliResponse + "</h4>";
+            socket.emit("clientMessage", "Hello " + cliName);
+            socket.emit("clientMessage", cliResponse);
+            socket.emit("clientMessage", "(" + curTime().toLocaleTimeString() + ") " + "Server: " + msg);
+            document.getElementById("chatbox").innerHTML += "<h4>" + "(" + curTime().toLocaleTimeString() + ") " + "Server: " + msg + "</h4>";
+            
+        }
+                
+            })
+          
+    </script>
+  </head>
+  <body>
+    <h2>Chatting with Socket IO</h2>
+    Name: <input type="text" id="clientName"/><br/>
+    Message: <input type="text" id="clientMsg" /><br />
+    <input type="button" value="Send" onclick="info()" />
+    <div id="chatbox"></div>
+  </body>
+</html>
